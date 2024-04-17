@@ -92,11 +92,10 @@ const EditProyecto = () => {
             onChange={handleChange} 
           >
             <option  value={nuevoProyecto.tipoProyectoId}>{nuevoProyecto.tipo_proyecto_nombre}</option>
-            {tiposProyecto.map(tipo=>{
-              if (tipo.id !== nuevoProyecto.tipoProyectoId){
-                return <option value={tipo.id}>{tipo.nombre}</option>
-              }
-            })}
+            {tiposProyecto.map(tipo=>(
+              tipo.id !== nuevoProyecto.tipoProyectoId && 
+              <option key={tipo.id} value={tipo.id}>{tipo.nombre}</option>
+            ))}
           </select>
         </div>
         <div>

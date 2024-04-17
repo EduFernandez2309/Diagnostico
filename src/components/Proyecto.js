@@ -27,13 +27,18 @@ const Proyecto = () => {
     });
   };
 
+
+  const handleEliminar = () =>{
+    
+  }
+
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div className="relative overflow-x-auto shadow-md sm:rounded-lg" >
       <div className="mb-4">
         <h2 className="text-lg font-bold text-white mb-2">Lista de proyectos</h2>
         <NavLink to="/form-proyecto" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">Agregar proyecto</NavLink>
       </div>
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" >
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3">
@@ -92,5 +97,6 @@ const Proyecto = () => {
     </div>
   );
 };
+
 
 export default Proyecto;

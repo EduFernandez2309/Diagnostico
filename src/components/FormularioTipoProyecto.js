@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const FormularioTipoProyecto = () => {
-  const [nuevoTipoProyecto, setNuevoTipoProyecto] = useState({
-    nombre: "",
-  });
+  const navigate = useNavigate() 
+
+  const [nuevoNombre, setNuevoNombre] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNuevoTipoProyecto({ ...nuevoTipoProyecto, [name]: value });
+    if (name === "nombre"){
+
+    }
+    setNuevoNombre(value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://127.0.0.1:5000/api/tipo-proyecto", {
-        nombre: nuevoTipoProyecto.nombre,
+        nombre: nuevoNombre
       });
       if (response.status === 201) {
         console.log("Tipo de proyecto agregado correctamente.");
-        setNuevoTipoProyecto({
-        });
+        navigate('/tipo-proyecto')
       }
     } catch (error) {
       console.error("Error al agregar el tipo de proyecto:", error.message);
@@ -37,7 +40,7 @@ const FormularioTipoProyecto = () => {
             type="text"
             id="nombre"
             name="nombre"
-            value={nuevoTipoProyecto.nombre}
+            value={nuevoNombre}
             onChange={handleChange}
             className="w-full rounded-md px-4 py-2 bg-gray-800 text-white"
           />
